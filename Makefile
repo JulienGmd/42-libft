@@ -6,7 +6,7 @@
 #    By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 20:12:27 by jgrimaud          #+#    #+#              #
-#    Updated: 2023/11/23 16:51:13 by jgrimaud         ###   ########.fr        #
+#    Updated: 2023/11/23 17:09:01 by jgrimaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,12 +33,6 @@ NAME	=	libft.a
 
 CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror -I.
-
-# SRC	=	$(wildcard $(SRC_DIR)*.c)
-# BSRC	=	$(wildcard $(SRC_DIR)*_bonus.c)
-# SRC  :=	$(filter-out $(BSRC), $(SRC))
-
-# INC	=	$(wildcard $(INC_DIR)*.h)
 
 SRC_DIR		=	./
 SRC			=	$(SRC_DIR)ft_atoi.c			\
