@@ -6,7 +6,7 @@
 #    By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 20:12:27 by jgrimaud          #+#    #+#              #
-#    Updated: 2023/11/23 17:09:01 by jgrimaud         ###   ########.fr        #
+#    Updated: 2023/11/23 17:36:21 by jgrimaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,11 +87,11 @@ OBJ_DIR		=	./
 OBJ			=	$(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 BOBJ		=  $(BSRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
-ifeq ($(shell realpath $(OBJ_DIR)), $(realpath .))
-OBJ_DIR_IS_DOT = 1
-else
-OBJ_DIR_IS_DOT = 0
-endif
+# ifeq ($(shell realpath $(OBJ_DIR)), $(realpath .))
+# OBJ_DIR_IS_DOT = 1
+# else
+# OBJ_DIR_IS_DOT = 0
+# endif
 
 
 
