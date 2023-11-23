@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 10:58:36 by jgrimaud          #+#    #+#             */
-/*   Updated: 2023/11/13 10:59:40 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:23:11 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 char	*ft_strdup(const char *s)
 {
 	char	*dup;
-	int		i;
+	size_t	i;
 
 	dup = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!dup)

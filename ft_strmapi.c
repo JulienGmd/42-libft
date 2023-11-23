@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:04:27 by jgrimaud          #+#    #+#             */
-/*   Updated: 2023/11/20 19:40:17 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:23:26 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	if (!s || !f)
 		return (NULL);

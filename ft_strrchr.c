@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 10:56:21 by jgrimaud          #+#    #+#             */
-/*   Updated: 2023/11/17 17:55:13 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:23:33 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 */
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	size_t	i;
 
 	if ((char)c == '\0')
 		return ((char *)&s[ft_strlen(s)]);

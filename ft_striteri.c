@@ -6,13 +6,15 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:04:43 by jgrimaud          #+#    #+#             */
-/*   Updated: 2023/11/20 19:40:04 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:24:31 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int		i;
+	size_t	i;
 
 	if (!s || !f)
 		return ;
