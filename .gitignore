@@ -1,0 +1,13 @@
+.vscode/
+obj/
+*.o
+*.a
+
+# For unit-tests (https://github.com/alelievr/libft-unit-test)
+*.so
+libftTester
+
+*.out
+_test.c
+OLD_*
+TODO
