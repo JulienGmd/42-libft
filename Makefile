@@ -6,7 +6,7 @@
 #    By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 20:12:27 by jgrimaud          #+#    #+#              #
-#    Updated: 2023/11/23 17:36:21 by jgrimaud         ###   ########.fr        #
+#    Updated: 2023/12/11 02:45:11 by jgrimaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ BSRC		=	$(SRC_DIR)ft_lstaddback_bonus.c		\
 INC_DIR		=	./
 INC			=	$(INC_DIR)libft.h	\
 
-OBJ_DIR		=	./
+OBJ_DIR		=	./obj/
 OBJ			=	$(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 BOBJ		=  $(BSRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
@@ -123,12 +123,11 @@ $(OBJ_DIR):
 re: fclean all
 
 clean:
-	rm -f $(OBJ) $(BOBJ)
-# @if [ $(OBJ_DIR_IS_DOT) ]; then\
-# 	rm -f $(OBJ) $(BOBJ);\
-# else\
-# 	rm -rf $(OBJ_DIR);\
-# fi
+	@if [ $(OBJ_DIR_IS_DOT) ]; then\
+		rm -f $(OBJ) $(BOBJ);\
+	else\
+		rm -rf $(OBJ_DIR);\
+	fi
 
 fclean: clean
 	rm -f $(NAME)
