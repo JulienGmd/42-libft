@@ -6,7 +6,7 @@
 #    By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 20:12:27 by jgrimaud          #+#    #+#              #
-#    Updated: 2023/12/11 02:45:11 by jgrimaud         ###   ########.fr        #
+#    Updated: 2023/12/12 20:46:16 by jgrimaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,75 +32,16 @@
 NAME	=	libft.a
 
 CC		=	cc
-CFLAGS	=	-Wall -Wextra -Werror -I.
+CFLAGS	=	-Wall -Wextra -Werror
 
-SRC_DIR		=	./
-SRC			=	$(SRC_DIR)ft_atoi.c			\
-				$(SRC_DIR)ft_bzero.c		\
-				$(SRC_DIR)ft_calloc.c		\
-				$(SRC_DIR)ft_isalnum.c		\
-				$(SRC_DIR)ft_isalpha.c		\
-				$(SRC_DIR)ft_isascii.c		\
-				$(SRC_DIR)ft_isdigit.c		\
-				$(SRC_DIR)ft_isprint.c		\
-				$(SRC_DIR)ft_itoa.c			\
-				$(SRC_DIR)ft_memchr.c		\
-				$(SRC_DIR)ft_memcmp.c		\
-				$(SRC_DIR)ft_memcpy.c		\
-				$(SRC_DIR)ft_memmove.c		\
-				$(SRC_DIR)ft_memset.c		\
-				$(SRC_DIR)ft_putchar_fd.c	\
-				$(SRC_DIR)ft_putendl_fd.c	\
-				$(SRC_DIR)ft_putnbr_fd.c	\
-				$(SRC_DIR)ft_putstr_fd.c	\
-				$(SRC_DIR)ft_split.c		\
-				$(SRC_DIR)ft_strchr.c		\
-				$(SRC_DIR)ft_strdup.c		\
-				$(SRC_DIR)ft_striteri.c		\
-				$(SRC_DIR)ft_strjoin.c		\
-				$(SRC_DIR)ft_strlcat.c		\
-				$(SRC_DIR)ft_strlcpy.c		\
-				$(SRC_DIR)ft_strlen.c		\
-				$(SRC_DIR)ft_strmapi.c		\
-				$(SRC_DIR)ft_strncmp.c		\
-				$(SRC_DIR)ft_strnstr.c		\
-				$(SRC_DIR)ft_strrchr.c		\
-				$(SRC_DIR)ft_strtrim.c		\
-				$(SRC_DIR)ft_substr.c		\
-				$(SRC_DIR)ft_tolower.c		\
-				$(SRC_DIR)ft_toupper.c		\
+SRC		=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
+BSRC	=	ft_lstaddback_bonus.c ft_lstaddfront_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
 
-BSRC		=	$(SRC_DIR)ft_lstaddback_bonus.c		\
-				$(SRC_DIR)ft_lstaddfront_bonus.c	\
-				$(SRC_DIR)ft_lstclear_bonus.c		\
-				$(SRC_DIR)ft_lstdelone_bonus.c		\
-				$(SRC_DIR)ft_lstiter_bonus.c		\
-				$(SRC_DIR)ft_lstlast_bonus.c		\
-				$(SRC_DIR)ft_lstmap_bonus.c			\
-				$(SRC_DIR)ft_lstnew_bonus.c			\
-				$(SRC_DIR)ft_lstsize_bonus.c		\
+INC		=	libft.h
 
-INC_DIR		=	./
-INC			=	$(INC_DIR)libft.h	\
-
-OBJ_DIR		=	./obj/
-OBJ			=	$(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
-BOBJ		=  $(BSRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
-
-# ifeq ($(shell realpath $(OBJ_DIR)), $(realpath .))
-# OBJ_DIR_IS_DOT = 1
-# else
-# OBJ_DIR_IS_DOT = 0
-# endif
-
-
-
-# ----------------------------- PARAMS VALIDATION ------------------------------
-
-# Make sure OBJ_DIR is a subfolder
-ifneq ($(findstring $(realpath .), $(shell realpath $(OBJ_DIR))), $(realpath .))
-$(error OBJ_DIR must be a subfolder or '.')
-endif
+OBJ_DIR	=	obj/
+OBJ		=	$(SRC:%.c=$(OBJ_DIR)%.o)
+BOBJ	=  $(BSRC:%.c=$(OBJ_DIR)%.o)
 
 
 
@@ -114,7 +55,7 @@ $(NAME): $(OBJ)
 # This rule only generates one file, which allows to not relink (meaning it will
 # not recompile every sources when a source changes).
 # Can be called with `make obj/ft_strlen.o`
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INC) | $(OBJ_DIR)
+$(OBJ_DIR)%.o: %.c $(INC) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
@@ -123,11 +64,7 @@ $(OBJ_DIR):
 re: fclean all
 
 clean:
-	@if [ $(OBJ_DIR_IS_DOT) ]; then\
-		rm -f $(OBJ) $(BOBJ);\
-	else\
-		rm -rf $(OBJ_DIR);\
-	fi
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)
@@ -136,15 +73,18 @@ bonus: $(BOBJ)
 	@make SRC="$(BSRC)"
 
 print:
-	@echo "SRC\n$(SRC)\n"
-	@echo "OBJ\n$(OBJ)\n"
-	@echo "INC\n$(INC)\n"
-	@echo "BSRC\n$(BSRC)\n"
-	@echo "BOBJ\n$(BOBJ)\n"
+	@echo "\nSRC\n$(SRC)"
+	@echo "\nOBJ\n$(OBJ)"
+	@echo "\nINC\n$(INC)"
+	@echo "\nBSRC\n$(BSRC)"
+	@echo "\nBOBJ\n$(BOBJ)"
 
-debug: CFLAGS += -g
-debug: re
-	gdb ./a.out -tui
+gdb:
+	@make -s CFLAGS+="-g" fclean all bonus
+	@gdb ./a.out -tui
+
+vg:
+
 
 # For unit-test (https://github.com/alelievr/libft-unit-test)
 so:
