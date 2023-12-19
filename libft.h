@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:27:30 by jgrimaud          #+#    #+#             */
-/*   Updated: 2023/11/20 23:22:52 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2023/12/19 07:08:30 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
+char	**ft_safe_split(char const *s, char c);
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));

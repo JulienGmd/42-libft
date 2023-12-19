@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:03:09 by jgrimaud          #+#    #+#             */
-/*   Updated: 2023/11/20 23:39:44 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2023/12/19 07:07:54 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,14 @@ char	**ft_split(char const *s, char c)
 	}
 	strs[i] = 0;
 	return (strs);
+}
+
+char	**ft_safe_split(char const *s, char c)
+{
+	char	**out;
+
+	out = ft_split(s, c);
+	if (!out)
+		exit(1);
+	return (out);
 }
