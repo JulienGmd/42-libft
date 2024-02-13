@@ -6,9 +6,12 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:48:19 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/13 20:28:12 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/13 22:31:27 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// TODO
+// - rechercher "malloc" "free" "realloc" et les remplacer par les versions "ft_"
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -17,6 +20,7 @@
 # include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <math.h>
 
 typedef struct s_list
 {
@@ -93,6 +97,28 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 // alloc
 
-void	*ft_calloc(size_t nmemb, size_t size);
+void	add_to_ptr_list(void *ptr, t_list **ptr_list);
+void	cleanup(t_list **ptr_list);
+
+void	*check_ptr(void *ptr, t_list **ptr_list);
+void	*ft_malloc(size_t size, t_list **ptr_list);
+void	*ft_calloc(size_t nmemb, size_t size, t_list **ptr_list);
+void	*ft_realloc(void *ptr, size_t size, size_t old_size, t_list **ptr_list);
+void	ft_free(void **ptr, t_list **ptr_list);
+
+void	**ft_malloc_2d(size_t size_y, size_t size_x, size_t element_size, t_list **ptr_list);
+void	ft_free_2d(void ***ptr, t_list **ptr_list);
+
+
+
+// error
+
+ssize_t write_error(char *msg);
+void	expect(int condition, char *msg, t_list **ptr_list);
+
+// exit
+
+void	clean_exit(int status, t_list **ptr_list);
+void	clean_exit_with_error(char *msg, t_list **ptr_list);
 
 #endif
