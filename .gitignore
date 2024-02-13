@@ -1,7 +1,6 @@
 .vscode/
+.idea/
 obj/
-*.a
 
-# For unit-tests (https://github.com/alelievr/libft-unit-test)
-*.so
-libftTester
+*.a
+*.out
