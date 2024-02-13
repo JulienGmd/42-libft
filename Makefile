@@ -31,17 +31,18 @@
 
 NAME	=	libft.a
 
+INC_DIR	=	.
+SRC_DIR	=	.
+OBJ_DIR	=	obj
+
 CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror
 
-# TEMP
-SRC		=	$(wildcard *.c)
-#SRC		=	char.c
-
 INC		=	libft.h
-
-OBJ_DIR	=	obj/
-OBJ		=	$(SRC:%.c=$(OBJ_DIR)%.o)
+# TEMP
+SRC		=	$(wildcard $(SRC_DIR)/*.c)
+#SRC		=	$(addprefix $(SRC_DIR)/, ft_alloc.c ft_char.c ft_char2.c)
+OBJ		=	$(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 
 
@@ -55,11 +56,11 @@ $(NAME): $(OBJ)
 # This rule only generates one file, which allows to not relink (meaning it will
 # not recompile every sources when a source changes).
 # Can be called with `make obj/ft_strlen.o`
-$(OBJ_DIR)%.o: %.c $(INC) | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+	mkdir -p $@
 
 re: fclean all
 
@@ -70,6 +71,10 @@ fclean: clean
 	rm -f $(NAME)
 
 print:
-	@echo "\nSRC\n$(SRC)"
-	@echo "\nOBJ\n$(OBJ)"
-	@echo "\nINC\n$(INC)"
+	@echo "\n-------------------- FILES --------------------\n"
+	@echo "NAME		$(NAME:%=\n%)\n"
+	@echo "INC		$(INC:%=\n%)\n"
+	@echo "SRC		$(SRC:%=\n%)\n"
+	@echo "OBJ		$(OBJ:%=\n%)\n"
+	@echo "\n-------------------- FLAGS --------------------\n"
+	@echo "CFLAGS	$(CFLAGS:%=\n%)\n"
