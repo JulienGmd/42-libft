@@ -6,17 +6,14 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:48:19 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/13 19:48:19 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/13 20:28:12 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// TODO
-// - 42 headers
-// - paco
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <limits.h>
 # include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -26,7 +23,6 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
-
 
 // char
 
@@ -86,7 +82,7 @@ t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
-bool	ft_lstdelshiftbycontent(t_list **lst, void *content, void (*del)(void *));
+bool	ft_lstdelshift(t_list **lst, void *content, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 
 int		ft_lstsize(t_list *lst);

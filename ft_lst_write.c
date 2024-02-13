@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/13 19:47:44 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/13 20:27:49 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	free(lst);
 }
 
-bool	ft_lstdelshiftbycontent(t_list **lst, void *content, void (*del)(void *))
+bool	ft_lstdelshift(t_list **lst, void *content, void (*del)(void *))
 {
 	t_list	*prev;
 	t_list	*curr;
