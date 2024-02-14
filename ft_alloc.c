@@ -6,15 +6,11 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/14 06:04:35 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:04:44 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// TODO attention aux fonctions qu'on call ici car elles peuvent call ft_malloc
-// ou ft_free
-// i.e. infinite loop
 
 /**
  * Check if a pointer is NULL. Exit the program if it is.
@@ -70,16 +66,4 @@ void	*ft_realloc(void *ptr, size_t size, size_t old_size, t_list **ptr_list)
 	}
 	ft_free(&ptr, ptr_list);
 	return (new_ptr);
-}
-
-/**
- * Free a pointer and set it to NULL.
-*/
-void	ft_free(void **ptr, t_list **ptr_list)
-{
-	if (ptr && *ptr)
-	{
-		ft_lstdelshift(ptr_list, *ptr, free);
-		*ptr = NULL;
-	}
 }

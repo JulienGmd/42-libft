@@ -6,17 +6,17 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/13 23:25:07 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/14 06:30:53 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// TODO lstnew est call par ft_malloc...
-t_list	*ft_lstnew(void *content)
+
+t_list	*ft_lstnew(void *content, t_list **ptr_list)
 {
 	t_list	*lst;
 
-	lst = malloc(sizeof(t_list));
+	lst = ft_malloc(sizeof(t_list), ptr_list);
 	if (!lst)
 		return (NULL);
 	lst->content = content;
@@ -46,16 +46,16 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	else
 		*lst = new;
 }
-// TODO delone est called par ft_free...
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *), t_list **ptr_list)
 {
 	if (!lst || !del)
 		return ;
 	del(lst->content);
-	free(lst);
+	ft_free((void **)&lst, ptr_list);
 }
 
-bool	ft_lstdelshift(t_list **lst, void *content, void (*del)(void *))
+bool	ft_lstdelshift(t_list **lst, void *content, void (*del)(void *), t_list **ptr_list)
 {
 	t_list	*prev;
 	t_list	*curr;
@@ -70,7 +70,7 @@ bool	ft_lstdelshift(t_list **lst, void *content, void (*del)(void *))
 				prev->next = curr->next;
 			else
 				*lst = curr->next;
-			ft_lstdelone(curr, del);
+			ft_lstdelone(curr, del, ptr_list);
 			return (true);
 		}
 		prev = curr;

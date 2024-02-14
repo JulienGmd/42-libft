@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:48:19 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/14 05:57:42 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:05:15 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ void	ft_putnbr_fd(int n, int fd);
 
 // lst
 
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(void *content, t_list **ptr_list);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-bool	ft_lstdelshift(t_list **lst, void *content, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstdelone(t_list *lst, void (*del)(void *), t_list **ptr_list);
+bool	ft_lstdelshift(t_list **lst, void *content, void (*del)(void *), t_list **ptr_list);
+void	ft_lstclear(t_list **lst, void (*del)(void *), t_list **ptr_list);
 
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
@@ -98,13 +98,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *), t_list *
 // alloc
 
 void	add_to_ptr_list(void *ptr, t_list **ptr_list);
+void	ft_free(void **ptr, t_list **ptr_list);
 void	cleanup(t_list **ptr_list);
 
 void	*check_ptr(void *ptr, t_list **ptr_list);
 void	*ft_malloc(size_t size, t_list **ptr_list);
 void	*ft_calloc(size_t nmemb, size_t size, t_list **ptr_list);
 void	*ft_realloc(void *ptr, size_t size, size_t old_size, t_list **ptr_list);
-void	ft_free(void **ptr, t_list **ptr_list);
 
 void	**ft_malloc_2d(size_t size_y, size_t size_x, size_t element_size, t_list **ptr_list);
 void	ft_free_2d(void ***ptr, t_list **ptr_list);
