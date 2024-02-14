@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:48:19 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/14 01:00:36 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/14 05:57:42 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 # include <limits.h>
 # include <stdbool.h>
+# include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <math.h>
 
 typedef struct s_list
 {
@@ -120,5 +120,10 @@ void	expect(int condition, char *msg, t_list **ptr_list);
 
 void	clean_exit(int status, t_list **ptr_list);
 void	clean_exit_with_error(char *msg, t_list **ptr_list);
+
+// math
+
+size_t	ft_min(size_t a, size_t b);
+size_t	ft_max(size_t a, size_t b);
 
 #endif
