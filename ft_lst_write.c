@@ -6,12 +6,12 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/13 20:27:49 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/13 23:25:07 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// TODO lstnew est call par ft_malloc...
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*lst;
@@ -46,7 +46,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	else
 		*lst = new;
 }
-
+// TODO delone est called par ft_free...
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst || !del)

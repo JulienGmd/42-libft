@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/13 19:47:44 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/13 23:16:41 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ static int	ft_itoa_get_str_len(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int n, t_list **ptr_list)
 {
 	char	*str;
 	int		len;
 
 	len = ft_itoa_get_str_len(n);
-	str = malloc(sizeof(char) * (len + 1));
+	str = ft_malloc(sizeof(char) * (len + 1), ptr_list);
 	if (!str)
 		return (NULL);
 	str[len] = '\0';

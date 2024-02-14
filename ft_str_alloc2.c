@@ -6,13 +6,13 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/13 19:47:44 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/14 00:59:35 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**ft_split_allocate_strs(char const *s, char c)
+static char	**ft_split_allocate_strs(char const *s, char c, t_list **ptr_list)
 {
 	size_t	num_str;
 	size_t	i;
@@ -25,24 +25,10 @@ static char	**ft_split_allocate_strs(char const *s, char c)
 			num_str++;
 		i++;
 	}
-	return (malloc(sizeof(char *) * (num_str + 1)));
+	return (ft_malloc(sizeof(char *) * (num_str + 1), ptr_list));
 }
 
-static char	**ft_split_free(char **strs)
-{
-	size_t	i;
-
-	i = 0;
-	while (strs[i])
-	{
-		free(strs[i]);
-		i++;
-	}
-	free(strs);
-	return (NULL);
-}
-
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c, t_list **ptr_list)
 {
 	char	**strs;
 	char	*last_delimiter;
@@ -50,7 +36,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	strs = ft_split_allocate_strs(s, c);
+	strs = ft_split_allocate_strs(s, c, ptr_list);
 	if (!strs)
 		return (NULL);
 	last_delimiter = (char *)s - 1;
@@ -61,9 +47,9 @@ char	**ft_split(char const *s, char c)
 			last_delimiter = (char *)s;
 		else if (s[1] == c || s[1] == '\0')
 		{
-			strs[i] = ft_substr(last_delimiter + 1, 0, s - last_delimiter);
+			strs[i] = ft_substr(last_delimiter + 1, 0, s - last_delimiter, ptr_list);
 			if (!strs[i++])
-				return (ft_split_free(strs));
+				return (ft_free_2d((void ***)&strs, ptr_list), NULL);
 		}
 		s++;
 	}

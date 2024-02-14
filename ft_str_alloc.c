@@ -6,18 +6,18 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/13 19:47:44 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/14 01:00:12 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *s, t_list **ptr_list)
 {
 	char	*dup;
 	size_t	i;
 
-	dup = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	dup = ft_malloc(sizeof(char) * (ft_strlen(s) + 1), ptr_list);
 	if (!dup)
 		return (NULL);
 	i = 0;
@@ -30,7 +30,7 @@ char	*ft_strdup(const char *s)
 	return (dup);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2, t_list **ptr_list)
 {
 	char	*str;
 	size_t	str_len;
@@ -38,7 +38,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	str_len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	str = malloc(sizeof(char) * str_len);
+	str = ft_malloc(sizeof(char) * str_len, ptr_list);
 	if (!str)
 		return (NULL);
 	str[0] = '\0';
@@ -47,7 +47,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len, t_list **ptr_list)
 {
 	char	*substr;
 	size_t	strlen;
@@ -57,10 +57,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	strlen = ft_strlen(s);
 	if (!s || start >= strlen || len == 0)
-		return (ft_calloc(1, 1));
+		return (ft_calloc(1, 1, ptr_list));
 	if (len > strlen - start)
 		len = strlen - start;
-	substr = malloc(sizeof(char) * (len + 1));
+	substr = ft_malloc(sizeof(char) * (len + 1), ptr_list);
 	if (!substr)
 		return (NULL);
 	i = 0;
@@ -73,7 +73,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substr);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set, t_list **ptr_list)
 {
 	size_t	i;
 	size_t	start;
@@ -82,7 +82,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1 || !set)
 		return ((char *)s1);
 	if (ft_strlen(s1) == 0)
-		return (ft_calloc(1, 1));
+		return (ft_calloc(1, 1, ptr_list));
 	i = 0;
 	while (s1[i] && ft_strchr(set, s1[i]))
 		i++;
@@ -92,7 +92,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i--;
 	end = i;
 	if (end >= start)
-		return (ft_substr(s1, start, end - start + 1));
+		return (ft_substr(s1, start, end - start + 1, ptr_list));
 	else
-		return (ft_calloc(1, 1));
+		return (ft_calloc(1, 1, ptr_list));
 }
