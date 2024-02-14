@@ -70,8 +70,6 @@ char	*ft_itoa(int n, t_list **ptr_list)
 
 	len = ft_itoa_get_str_len(n);
 	str = ft_malloc(sizeof(char) * (len + 1), ptr_list);
-	if (!str)
-		return (NULL);
 	str[len] = '\0';
 	if (n == 0)
 	{

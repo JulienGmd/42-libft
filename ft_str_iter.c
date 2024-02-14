@@ -34,8 +34,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char), t_list **ptr_list
 	if (!s || !f)
 		return (NULL);
 	str = ft_malloc(sizeof(char) * (ft_strlen(s) + 1), ptr_list);
-	if (!str)
-		return (NULL);
 	i = 0;
 	while (s[i])
 	{

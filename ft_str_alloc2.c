@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/14 00:59:35 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:25:07 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ char	**ft_split(char const *s, char c, t_list **ptr_list)
 	if (!s)
 		return (NULL);
 	strs = ft_split_allocate_strs(s, c, ptr_list);
-	if (!strs)
-		return (NULL);
 	last_delimiter = (char *)s - 1;
 	i = 0;
 	while (s[0])
@@ -46,11 +44,7 @@ char	**ft_split(char const *s, char c, t_list **ptr_list)
 		if (s[0] == c)
 			last_delimiter = (char *)s;
 		else if (s[1] == c || s[1] == '\0')
-		{
-			strs[i] = ft_substr(last_delimiter + 1, 0, s - last_delimiter, ptr_list);
-			if (!strs[i++])
-				return (ft_free_2d((void ***)&strs, ptr_list), NULL);
-		}
+			strs[i++] = ft_substr(last_delimiter + 1, 0, s - last_delimiter, ptr_list);
 		s++;
 	}
 	strs[i] = 0;
