@@ -6,12 +6,9 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:48:19 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/14 07:05:15 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/15 01:04:29 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// TODO
-// - rechercher "malloc" "free" "realloc" et les remplacer par les versions "ft_"
 
 #ifndef LIBFT_H
 # define LIBFT_H
