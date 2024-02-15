@@ -21,7 +21,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	}
 }
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *), t_list **ptr_list)
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), t_list **ptr_list)
 {
 	t_list	*dup_first;
 	t_list	*dup;

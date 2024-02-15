@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/14 07:23:21 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/15 03:42:38 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len, t_list **ptr_list
 	size_t	strlen;
 	size_t	i;
 
-	if (!s || start >= strlen || len == 0)
+	if (!s || len == 0)
 		return (NULL);
 	strlen = ft_strlen(s);
+	if (start >= strlen)
+		return (NULL);
 	if (len > strlen - start)
 		len = strlen - start;
 	substr = ft_malloc(sizeof(char) * (len + 1), ptr_list);
