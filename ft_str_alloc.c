@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/15 03:42:38 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/15 04:41:00 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ char	*ft_strjoin(char const *s1, char const *s2, t_list **ptr_list)
 	return (str);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len, t_list **ptr_list)
+char	*ft_substr(char const *s, unsigned int start, size_t len,
+					t_list **ptr_list)
 {
 	char	*substr;
 	size_t	strlen;

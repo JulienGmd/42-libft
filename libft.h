@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:48:19 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/15 03:34:04 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/15 04:40:29 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 char	*ft_strdup(const char *s, t_list **ptr_list);
 char	*ft_strjoin(char const *s1, char const *s2, t_list **ptr_list);
-char	*ft_substr(char const *s, unsigned int start, size_t len, t_list **ptr_list);
+char	*ft_substr(char const *s, unsigned int start, size_t len,
+			t_list **ptr_list);
 char	*ft_strtrim(char const *s1, char const *set, t_list **ptr_list);
 char	**ft_split(char const *s, char c, t_list **ptr_list);
 
@@ -53,7 +54,8 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char), t_list **ptr_list);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char),
+			t_list **ptr_list);
 
 // mem
 
@@ -83,7 +85,8 @@ t_list	*ft_lstnew(void *content, t_list **ptr_list);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *), t_list **ptr_list);
-bool	ft_lstdelshift(t_list **lst, void *content, void (*del)(void *), t_list **ptr_list);
+bool	ft_lstdelshift(t_list **lst, void *content, void (*del)(void *),
+			t_list **ptr_list);
 void	ft_lstclear(t_list **lst, void (*del)(void *), t_list **ptr_list);
 
 int		ft_lstsize(t_list *lst);
@@ -103,14 +106,13 @@ void	*ft_malloc(size_t size, t_list **ptr_list);
 void	*ft_calloc(size_t nmemb, size_t size, t_list **ptr_list);
 void	*ft_realloc(void *ptr, size_t size, size_t old_size, t_list **ptr_list);
 
-void	**ft_malloc_2d(size_t size_y, size_t size_x, size_t element_size, t_list **ptr_list);
+void	**ft_malloc_2d(size_t size_y, size_t size_x, size_t element_size,
+			t_list **ptr_list);
 void	ft_free_2d(void ***ptr, t_list **ptr_list);
-
-
 
 // error
 
-ssize_t write_error(char *msg);
+ssize_t	write_error(char *msg);
 void	expect(int condition, char *msg, t_list **ptr_list);
 
 // exit

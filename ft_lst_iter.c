@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/13 23:17:26 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/15 04:41:57 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	}
 }
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), t_list **ptr_list)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), t_list **ptr_list)
 {
 	t_list	*dup_first;
 	t_list	*dup;

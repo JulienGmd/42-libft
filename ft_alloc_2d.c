@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 22:20:36 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/13 22:20:40 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/15 04:39:00 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /**
  * Allocate a NULL-terminated 2d array and exit the program if it fails.
 */
-void	**ft_malloc_2d(size_t size_y, size_t size_x, size_t element_size, t_list **ptr_list)
+void	**ft_malloc_2d(size_t size_y, size_t size_x, size_t element_size,
+						t_list **ptr_list)
 {
 	void	**out;
 	size_t	y;
@@ -28,7 +29,7 @@ void	**ft_malloc_2d(size_t size_y, size_t size_x, size_t element_size, t_list **
 	while (y < size_y)
 	{
 		out[y] = ft_malloc(element_size * (size_x + 1), ptr_list);
-		((char*)out[y])[element_size * size_x] = 0;
+		((char *)out[y])[element_size * size_x] = 0;
 		y++;
 	}
 	out[size_y] = 0;

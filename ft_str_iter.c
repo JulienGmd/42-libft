@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/13 23:20:07 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/02/15 04:42:14 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	}
 }
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char), t_list **ptr_list)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char),
+					t_list **ptr_list)
 {
 	char	*str;
 	size_t	i;
