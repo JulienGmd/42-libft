@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/15 04:42:14 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/03/14 01:13:07 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 }
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char),
-					t_list **ptr_list)
+					void *data)
 {
 	char	*str;
 	size_t	i;
 
 	if (!s || !f)
 		return (NULL);
-	str = ft_malloc(sizeof(char) * (ft_strlen(s) + 1), ptr_list);
+	str = ft_malloc(sizeof(char) * (ft_strlen(s) + 1), data);
 	i = 0;
 	while (s[i])
 	{

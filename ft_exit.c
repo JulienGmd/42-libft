@@ -6,22 +6,22 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 22:09:54 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/13 22:10:01 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/03/13 22:53:17 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	clean_exit(int status, t_list **ptr_list)
+void	clean_exit(int status, void *data)
 {
-	cleanup(ptr_list);
+	cleanup(data);
 	exit(status);
 }
 
-void	clean_exit_with_error(char *msg, t_list **ptr_list)
+void	clean_exit_with_error(char *msg, void *data)
 {
 	write_error("Error: ");
 	write_error(msg);
 	write_error("\n");
-	clean_exit(1, ptr_list);
+	clean_exit(1, data);
 }

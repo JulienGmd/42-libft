@@ -6,13 +6,13 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/15 04:41:41 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/03/14 01:12:20 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**ft_split_allocate_strs(char const *s, char c, t_list **ptr_list)
+static char	**ft_split_allocate_strs(char const *s, char c, void *data)
 {
 	size_t	num_str;
 	size_t	i;
@@ -25,10 +25,10 @@ static char	**ft_split_allocate_strs(char const *s, char c, t_list **ptr_list)
 			num_str++;
 		i++;
 	}
-	return (ft_malloc(sizeof(char *) * (num_str + 1), ptr_list));
+	return (ft_malloc(sizeof(char *) * (num_str + 1), data));
 }
 
-char	**ft_split(char const *s, char c, t_list **ptr_list)
+char	**ft_split(char const *s, char c, void *data)
 {
 	char	**strs;
 	char	*last_delimiter;
@@ -36,7 +36,7 @@ char	**ft_split(char const *s, char c, t_list **ptr_list)
 
 	if (!s)
 		return (NULL);
-	strs = ft_split_allocate_strs(s, c, ptr_list);
+	strs = ft_split_allocate_strs(s, c, data);
 	last_delimiter = (char *)s - 1;
 	i = 0;
 	while (s[0])
@@ -45,7 +45,7 @@ char	**ft_split(char const *s, char c, t_list **ptr_list)
 			last_delimiter = (char *)s;
 		else if (s[1] == c || s[1] == '\0')
 			strs[i++] = ft_substr(last_delimiter + 1, 0, s - last_delimiter,
-					ptr_list);
+					data);
 		s++;
 	}
 	strs[i] = 0;
