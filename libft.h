@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:48:19 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/03/14 01:20:54 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/03/16 03:14:31 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *), void *data);
 bool	ft_lstdelshift(t_list **lst, void *content, void (*del)(void *),
-					   void *data);
+			void *data);
 void	ft_lstclear(t_list **lst, void (*del)(void *), void *data);
 
 // ---------------------------------- Math -------------------------------------
@@ -137,7 +137,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
-
-
 
 #endif
