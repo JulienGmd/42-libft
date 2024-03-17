@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:48:19 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/03/16 03:14:31 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/03/17 21:07:59 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
+
+typedef unsigned int	t_uint;
 
 typedef struct s_list
 {
@@ -137,5 +140,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+
+// --------------------------------- Printf ------------------------------------
+
+int		ft_printf(const char *format, ...);
+int		ft_print_nbr_base(ssize_t n, char *base);
+int		ft_print_unbr_base(size_t n, char *base);
 
 #endif

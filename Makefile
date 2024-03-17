@@ -40,28 +40,31 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 INC		=	libft.h
 SRC		=	$(addprefix $(SRC_DIR)/, \
-				ft_alloc.c		\
-				ft_char.c		\
-				ft_char2.c		\
-				ft_check.c		\
-				ft_conv.c		\
-				ft_error.c		\
-				ft_exit.c		\
-				ft_fd.c			\
-				ft_free.c		\
-				ft_gc.c			\
-				ft_lst_iter.c	\
-				ft_lst_read.c	\
-				ft_lst_write.c	\
-				ft_lst_write2.c	\
-				ft_math.c		\
-				ft_mem_read.c	\
-				ft_mem_write.c	\
-				ft_str_alloc.c	\
-				ft_str_alloc2.c	\
-				ft_str_iter.c	\
-				ft_str_read.c	\
-				ft_str_write.c)
+				ft_alloc.c			\
+				ft_char.c			\
+				ft_char2.c			\
+				ft_check.c			\
+				ft_conv.c			\
+				ft_error.c			\
+				ft_exit.c			\
+				ft_fd.c				\
+				ft_free.c			\
+				ft_gc.c				\
+				ft_lst_iter.c		\
+				ft_lst_read.c		\
+				ft_lst_write.c		\
+				ft_lst_write2.c		\
+				ft_math.c			\
+				ft_mem_read.c		\
+				ft_mem_write.c		\
+				ft_str_alloc.c		\
+				ft_str_alloc2.c		\
+				ft_str_iter.c		\
+				ft_str_read.c		\
+				ft_str_write.c		\
+				ft_print_nbr_base.c	\
+                ft_printf.c			\
+			)
 OBJ		=	$(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 
