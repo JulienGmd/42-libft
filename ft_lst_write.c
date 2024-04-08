@@ -45,7 +45,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *), void *data)
 	if (!lst || !del)
 		return ;
 	del(lst->content);
-	ft_free((void **)&lst, data);
+	ft_free(lst, data);
 }
 
 bool	ft_lstdelshift(t_list **lst, void *content, void (*del)(void *),

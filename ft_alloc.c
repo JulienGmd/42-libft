@@ -55,7 +55,7 @@ void	*ft_realloc(void *ptr, size_t size, size_t old_size, void *data)
 		if (ptr)
 			ft_memmove(new_ptr, ptr, ft_min(size, old_size));
 	}
-	ft_free(&ptr, data);
+	ft_free(ptr, data);
 	return (new_ptr);
 }
 

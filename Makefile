@@ -41,6 +41,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 INC		=	libft.h
 SRC		=	$(addprefix $(SRC_DIR)/, \
 				ft_alloc.c			\
+				ft_arr.c			\
 				ft_char.c			\
 				ft_char2.c			\
 				ft_check.c			\
@@ -61,6 +62,7 @@ SRC		=	$(addprefix $(SRC_DIR)/, \
 				ft_str_alloc2.c		\
 				ft_str_iter.c		\
 				ft_str_read.c		\
+				ft_str_read2.c		\
 				ft_str_write.c		\
 				ft_print_nbr_base.c	\
                 ft_printf.c			\

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   ft_str_read2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 22:09:54 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/04/08 19:23:49 by jgrimaud         ###   ########.fr       */
+/*   Created: 2024/03/18 03:45:46 by jgrimaud          #+#    #+#             */
+/*   Updated: 2024/04/08 19:26:05 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	clean_exit(int status, void *data)
+/**
+ * @return the index of the first occurence of c in str or -1 if not found.
+ */
+size_t	ft_index_of(char *str, char c)
 {
-	cleanup(data);
-	exit(status);
-}
+	size_t	i;
 
-void	clean_exit_with_error(char *msg, void *data)
-{
-	write_error("Error: ");
-	write_error(msg);
-	write_error("\n");
-	clean_exit(1, data);
+	i = -1;
+	while (str[++i])
+		if (str[i] == c)
+			return (i);
+	return (-1);
 }

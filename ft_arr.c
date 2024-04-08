@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   ft_arr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 22:09:54 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/04/08 19:23:49 by jgrimaud         ###   ########.fr       */
+/*   Created: 2024/03/19 06:37:58 by jgrimaud          #+#    #+#             */
+/*   Updated: 2024/03/19 06:39:21 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	clean_exit(int status, void *data)
+size_t	arr_2d_len(void **arr)
 {
-	cleanup(data);
-	exit(status);
-}
+	size_t	len;
 
-void	clean_exit_with_error(char *msg, void *data)
-{
-	write_error("Error: ");
-	write_error(msg);
-	write_error("\n");
-	clean_exit(1, data);
+	len = 0;
+	while (arr[len])
+		len++;
+	return (len);
 }

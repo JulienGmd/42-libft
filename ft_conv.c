@@ -6,16 +6,11 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/03/14 00:46:20 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/03/18 05:27:23 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_isspace(char c)
-{
-	return (c == ' ' || (c >= 9 && c <= 13));
-}
 
 int	ft_atoi(const char *nptr)
 {
@@ -42,6 +37,29 @@ int	ft_atoi(const char *nptr)
 		}
 		nbr = nbr * 10 + nptr[0] - '0';
 		nptr++;
+	}
+	return (sign * nbr);
+}
+
+ssize_t	ft_atoi_base(char *str, char *base, size_t base_len)
+{
+	int		sign;
+	long	nbr;
+
+	sign = 1;
+	nbr = 0;
+	while (ft_isspace(str[0]))
+		str++;
+	if (str[0] == '+' || str[0] == '-')
+	{
+		if (str[0] == '-')
+			sign = -sign;
+		str++;
+	}
+	while (ft_index_of(base, str[0]) != (size_t)-1)
+	{
+		nbr = nbr * base_len + ft_index_of(base, str[0]);
+		str++;
 	}
 	return (sign * nbr);
 }

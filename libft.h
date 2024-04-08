@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:48:19 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/03/17 21:07:59 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/03/19 06:38:12 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ void	*ft_calloc(size_t nmemb, size_t size, void *data);
 void	*ft_realloc(void *ptr, size_t size, size_t old_size, void *data);
 void	**ft_malloc_2d(size_t sy, size_t sx, size_t el_size, void *data);
 
+// ---------------------------------- Array ------------------------------------
+
+size_t	arr_2d_len(void **arr);
+
 // ---------------------------------- Char -------------------------------------
 
 int		ft_isalpha(int c);
@@ -53,6 +57,7 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+int		ft_isspace(char c);
 
 // ---------------------------------- Check ------------------------------------
 
@@ -63,6 +68,7 @@ void	expect(int condition, char *msg, void *data);
 
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int n, void *data);
+ssize_t	ft_atoi_base(char *str, char *base, size_t base_len);
 
 // ---------------------------------- Error ------------------------------------
 
@@ -82,8 +88,8 @@ void	ft_putnbr_fd(int n, int fd);
 
 // ---------------------------------- Free -------------------------------------
 
-void	ft_free(void **ptr, void *data);
-void	ft_free_2d(void ***ptr, void *data);
+void	ft_free(void *ptr, void *data);
+void	ft_free_2d(void **ptr, void *data);
 
 // ----------------------------------- GC --------------------------------------
 
@@ -137,6 +143,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
+size_t	ft_index_of(char *str, char c);
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);

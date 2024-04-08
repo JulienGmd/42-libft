@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 22:19:49 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/03/14 01:23:00 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/03/18 04:40:51 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	add_to_ptr_list(void *ptr, void *data)
 	}
 	node->content = ptr;
 	node->next = NULL;
-	ft_lstadd_back(&((t_pdata *)data)->ptrs, node);
+	ft_lstadd_front(&((t_pdata *)data)->ptrs, node);
 }
 
 /**
