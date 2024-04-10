@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/02/13 19:47:44 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/04/10 19:36:35 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,19 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			((char *)dest)[i] = ((char *)src)[i];
 		}
 	}
+	return (dest);
+}
+
+void	*ft_memdup(const void *src, size_t n, void *data)
+{
+	char	*dest;
+	size_t	i;
+
+	if (!src)
+		return (NULL);
+	dest = ft_malloc(n, data);
+	i = -1;
+	while (++i < n)
+		dest[i] = ((char *)src)[i];
 	return (dest);
 }
