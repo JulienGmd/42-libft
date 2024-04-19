@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 00:52:17 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/03/16 03:14:47 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/04/19 02:06:45 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,37 +38,4 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		ft_lstlast(*lst)->next = new;
 	else
 		*lst = new;
-}
-
-void	ft_lstdelone(t_list *lst, void (*del)(void *), void *data)
-{
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	ft_free(lst, data);
-}
-
-bool	ft_lstdelshift(t_list **lst, void *content, void (*del)(void *),
-				void *data)
-{
-	t_list	*prev;
-	t_list	*curr;
-
-	prev = NULL;
-	curr = *lst;
-	while (curr)
-	{
-		if (curr->content == content)
-		{
-			if (prev)
-				prev->next = curr->next;
-			else
-				*lst = curr->next;
-			ft_lstdelone(curr, del, data);
-			return (true);
-		}
-		prev = curr;
-		curr = curr->next;
-	}
-	return (false);
 }
