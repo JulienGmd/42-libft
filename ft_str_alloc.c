@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/03/14 01:10:26 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/04/26 08:32:28 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 char	*ft_strdup(const char *s, void *data)
 {
+	return (ft_strndup(s, ft_strlen(s), data));
+}
+
+char	*ft_strndup(const char *s, size_t n, void *data)
+{
 	char	*dup;
 	size_t	i;
 
-	dup = ft_malloc(sizeof(char) * (ft_strlen(s) + 1), data);
+	dup = ft_malloc(sizeof(char) * (n + 1), data);
 	i = 0;
-	while (s[i])
+	while (s[i] && i < n)
 	{
 		dup[i] = s[i];
 		i++;

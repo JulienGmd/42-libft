@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:48:19 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/04/26 03:37:36 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/04/26 08:23:45 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ void	*ft_memdup(const void *src, size_t n, void *data);
 // --------------------------------- String ------------------------------------
 
 char	*ft_strdup(const char *s, void *data);
+char	*ft_strndup(const char *s, size_t n, void *data);
 char	*ft_strjoin(char const *s1, char const *s2, void *data);
 char	*ft_substr(char const *s, unsigned int start, size_t len, void *data);
 char	*ft_strtrim(char const *s1, char const *set, void *data);
