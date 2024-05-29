@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:47:44 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/04/19 02:07:14 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/05/29 10:12:02 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *ptr, void *d), void *data)
 }
 
 bool	ft_lstdelshift(t_list **lst, void *content,
-					   void (*del)(void *ptr, void *d), void *data)
+		void (*del)(void *ptr, void *d), void *data)
 {
 	t_list	*prev;
 	t_list	*curr;
