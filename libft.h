@@ -6,7 +6,7 @@
 /*   By: jgrimaud <jgrimaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:48:19 by jgrimaud          #+#    #+#             */
-/*   Updated: 2024/05/30 08:48:34 by jgrimaud         ###   ########.fr       */
+/*   Updated: 2024/05/30 09:36:09 by jgrimaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,9 +109,9 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *ptr, void *d), void *data);
 bool	ft_lstdelshift(t_list **lst, t_list *el,
-					   void (*del)(void *ptr, void *d), void *data);
+			void (*del)(void *ptr, void *d), void *data);
 bool	ft_lstdelshiftbycontent(t_list **lst, void *content,
-								void (*del)(void *ptr, void *d), void *data);
+			void (*del)(void *ptr, void *d), void *data);
 void	ft_lstclear(t_list **lst, void (*del)(void *ptr, void *d), void *data);
 
 // ---------------------------------- Math -------------------------------------
